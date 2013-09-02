@@ -1,0 +1,571 @@
+// Variables ------------
+@textFont: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@headerFont: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@textFont: 'Varela', "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@headerFont: 'Varela', "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@titleFont: 'Georgia', 'Times', serif;
+
+@themeColor1: #fafafa;
+@themeColor2: #1a0909;
+@themeColor3: #4be8d1;
+@themeColor4: #e83443;
+
+//Blue green theme
+//@themeColor3: #4bd4e8;
+//@themeColor4: #81e864;
+
+
+@LogoColor1: @themeColor3;
+@LogoColor2: @themeColor4;
+@LogoColor3: @themeColor2;
+
+//@LogoColor1: #2ce8dd;
+//@LogoColor2: #ff3938;
+//@LogoColor3: #292928;
+
+@headerBackgroundColor: @LogoColor3;
+@navColor: #808080;
+@titleColor: #808080;
+
+@textColor: #333;
+
+@ahovercolor: #6146ff;
+
+@portfolioBackgroundColor: @LogoColor1;
+@portfolioHeaderColor: @themeColor2;
+@portfolioTextColor: #555;
+
+@aboutBackgroundColor: @LogoColor2;
+@aboutHeaderColor: @themeColor1;
+//@aboutTextColor: #d5b8b5;
+@aboutTextColor: @themeColor2;
+
+@mastheadBackgroundColor: #fafafa;
+@mastheadHeaderColor: #999;
+@mastheadTextColor: #555;
+
+@cvBackgroundColor: @themeColor1;
+//@cvHeaderColor: #999;
+//@cvTextColor: #555;
+@cvHeaderColor: @themeColor2;
+@cvTextColor: @themeColor4;
+
+@contactBackgroundColor: @LogoColor2;
+@contactHeaderColor: @themeColor1;
+@contactTextColor: @themeColor2;
+@contactalinkColor: @themeColor3;
+
+@responsiveNavBGColor: #3b3b3b;
+
+@responsiveThreshold1: 930px;
+@responsiveThreshold2: 700px;
+
+
+html { -webkit-font-smoothing: antialiased; }
+
+// Mixins ------------------------------
+.centerDiv (@width: 80%){
+  margin: auto;
+  width: @width;
+  max-width: 61em;
+  min-width: 16em;
+}
+
+.fade() {
+  // style fade
+  color: @LogoColor1;
+  -o-transition:.7s;
+  -ms-transition:.7s;
+  -moz-transition:.7s;
+  -webkit-transition:.7s;
+  transition:.7s;
+}
+
+// Style ----------------------------------
+section{
+  padding-bottom: 1em;
+}
+
+body{
+  font-family: @textFont;
+  color: @textColor;
+  font-size: 16px;
+  font-size: 12pt;
+  font-weight: 400;
+  line-height: 1.7em;
+  width: 100%;
+  padding: 0; // keeps twitter bootstrap from padding the body
+  opacity: 1;
+}
+
+h1, h2, h3, h4, .title{
+  font-family: @headerFont;
+  font-weight: 300;
+}
+h1{
+//  font-size: 218%;
+  font-size: 164%;
+  padding-bottom: 0.7em;
+}
+h2{
+//  font-size: 164%;
+  font-size: 145%;
+  padding-bottom: 0.5em;
+}
+h3{
+//  font-size: 145%;
+  padding-bottom: 0.5em;
+  color: #333;
+}
+h4 {
+  font-size: 118%;
+}
+
+p{
+  font-weight: normal;
+  padding-left: 1em;
+}
+
+a{
+  text-decoration: none;
+  :hover{
+    text-decoration: none;
+    .fade();
+    color: @navColor;
+  }
+  :visited{
+    text-decoration: none;
+  }
+}
+
+.center{
+  .centerDiv();
+}
+
+.content{
+  .centerDiv();
+  padding: 2em 0 2em 0;
+}
+
+.social{
+  float: right;
+  margin: 2.3em 0 0 0;
+  width: 80px;
+  position: absolute;
+  right: 0;
+
+  a {
+    opacity: 0.5;
+    display: inline-block;
+    margin: 0 0.5em 0 0;
+  }
+
+  .linkedin{
+    .fade();
+    background: url('../images/social_sprite_min.png') no-repeat -92px -1px;
+    width: 26px;
+    height: 26px;
+
+  }
+  .linkedin:hover{
+//    background: url('../images/social_sprite_min.png') no-repeat -92px -29px;
+//    width: 26px;
+//    height: 26px;
+    opacity: 1;
+  }
+
+  .twitter{
+    .fade();
+    background: url('../images/social_sprite_min.png') no-repeat -24px -2px;
+    width: 32px;
+    height: 23px;
+
+  }
+  .twitter:hover{
+//      background: url('../images/social_sprite_min.png') no-repeat -24px -30px;
+//      width: 32px;
+//      height: 24px;
+    opacity: 1;
+  }
+}
+
+header{
+  height: 6.5em;
+  background-color: @headerBackgroundColor;
+
+  .title {
+    font-size: 4.2em;
+    font-family: @titleFont;
+    float: left;
+    margin: 0.6em 0 0.55em 0;
+
+    .LogoColor1{
+      // style fade
+      .fade();
+      color: @LogoColor1;
+    }
+
+    .LogoColor2{
+      // style fade
+      .fade();
+      color: @LogoColor2;
+    }
+
+    a:hover{
+      .LogoColor1{color: @LogoColor2;}
+      .LogoColor2{color: @LogoColor1;}
+      text-decoration: none;
+    }
+  }
+
+  nav{
+    float: right;
+    margin: 2.5em 0 0 0;
+    ul li{
+      list-style: none;
+      display: inline;
+      :hover{
+        text-decoration: none;
+        color: @themeColor3;
+      }
+      a{
+        // style fade
+        .fade();
+        color: @navColor;
+        padding: 2em 2em 2em 2em;
+      }
+    }
+    .currentPage {
+      border-bottom: 1px solid #fafafa;
+    }
+  }
+}
+
+.app{
+  width: 100%;
+
+  ul li{
+    margin: 0 0 0.6em 0;
+  }
+
+  #masthead{
+    background-color: @mastheadBackgroundColor;
+    .mePicture{
+        position: relative;
+        float: left;
+        width: 100%;
+
+        .portrait{
+          right: 0;
+          bottom: -1em;
+          width: 23%;
+          position: absolute;
+          visibility: hidden;
+        }
+
+        .cloud{
+          width: 80%;
+          padding-bottom: 3em;
+          position: relative;
+          overflow: hidden;
+          visibility: hidden;
+
+          .thought{
+            img{width: 100%;}
+            width: 70%;
+            position: absolute;
+            top: 0.2em;
+            left: 0.2em
+          }
+        }
+      }
+  }
+
+  #about{
+    background-color: @aboutBackgroundColor;
+    h1{
+        color: @aboutHeaderColor;
+        width: 65%;
+    }
+    p{
+      color:@aboutTextColor;
+      padding-top: 1em;
+    }
+
+    .content{
+      padding-top: 2.5em;
+      position: relative;
+    }
+  }
+
+  #portfolio{
+    background-color: @portfolioBackgroundColor;
+    a{color: @portfolioTextColor;}
+    h1{color: @portfolioHeaderColor;}
+
+    .project{
+      padding: 1em;
+      text-align: center;
+      img{
+        max-height: 25em;
+        opacity: 1;
+        :hover{
+          .fade();
+          opacity: 0.7;
+        }
+      }
+      h4{
+        text-align: center;
+      }
+      p{
+        text-align: center;
+      }
+      .readMoreLink{
+        color:@themeColor4;
+      }
+
+    }
+    .autotrim{
+      margin-top: -2.5em;
+    }
+    .lefebvrejenne{
+      margin-top: 4.3em;
+    }
+  }
+
+
+  #cv{
+    background-color: @cvBackgroundColor;
+    color: @cvTextColor;
+    h1, h2 {color: @cvHeaderColor;}
+
+    .graphHidden{
+      visibility: hidden !important;
+    }
+
+    .graph{
+      position: relative;
+      visibility: visible;
+      margin: 0 0 3.5em 1.5em;
+      width: 100%;
+      .bar{
+        display: inline-block;
+        margin: 0 1.5% 0 0;
+        font-size: 1.5em;
+        color: @themeColor1;
+        position: relative;
+        max-width: 152px;
+        .bartext{
+          position: absolute;
+          text-align: center;
+          width: 100%;
+          bottom: 0.5em;
+        }
+        img{
+          width: 100%;
+        }
+      }
+      #htmlbar{
+        background: url('../images/Graph.jpg') no-repeat -38px -232px;
+        width: 17%;
+        height: 453px;
+      }
+      #cssbar{
+        background: url('../images/Graph.jpg') no-repeat -227px -268px;
+        width: 17%;
+        height: 417px;
+      }
+      #jQuerybar{
+        background: url('../images/Graph.jpg') no-repeat -415px -348px;
+        width: 17%;
+        height: 337px;
+      }
+      #phpbar{
+        background: url('../images/Graph.jpg') no-repeat -607px -426px;
+        width: 17%;
+        height: 258px;
+      }
+      #wordpressbar{
+        background: url('../images/Graph.jpg') no-repeat no-repeat -796px -387px;
+        width: 17%;
+        height: 297px;
+      }
+    }
+    @media all and (max-width: @responsiveThreshold1) {
+      .graph{
+        margin: 0;
+      }
+      .bartext{
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+        text-align: left;
+        margin-bottom: 2em;
+//        bottom: 0;
+        width: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  #contact{
+    background-color: @contactBackgroundColor;
+
+    h1{
+      color: @contactHeaderColor;
+    }
+
+    p{
+      color:@contactTextColor;
+      color: @themeColor1;
+      text-align: center;
+//      padding-top: 1em;
+    }
+
+    a{
+      color: @contactalinkColor;
+      font-family: @headerFont;
+      font-size: 3em;
+    }
+  }
+
+
+  .blogEntry{
+    border-bottom: 1px solid #ddd;
+  }
+
+  .title{
+    background-color: @aboutBackgroundColor;
+    color: @aboutHeaderColor;
+  }
+
+}
+
+footer{
+  padding: 1em 0 1em 0;
+  color: @titleColor;
+  background-color: @headerBackgroundColor;
+  height: 2em;
+
+  .designTag{
+    float: left;
+    text-align: center;
+    width: 100%;
+  }
+  .social{
+//    position: relative;
+//    float: right;
+    margin: 0em 0 0 0;
+//    width: 20%;
+
+    }
+}
+
+// Theme Colors ----------------------
+.themeColor1{
+  background-color: @themeColor1;
+}
+.themeColor2{
+  background-color: @themeColor2;
+}
+.themeColor3{
+  background-color: @themeColor3;
+}
+.themeColor4{
+  background-color: @themeColor4;
+  color: @themeColor2;
+  h2 {color: #fafafa;}
+}
+
+.text{
+  position: relative;
+}
+
+.flushBottomImg {
+//  position: absolute;
+//  font-size: 16px;
+  margin-bottom: -2.95em;
+}
+
+
+//TODO: Make this responsive stuff kosher
+@media all and (max-width: @responsiveThreshold2) {
+  header{
+    width: 100%;
+
+    .title{
+      text-align: center;
+      float: left;
+      width: 100%;
+    }
+    .center{
+      width: 100%;
+    }
+    nav#mainnav{
+      width: 100%;
+      background-color: @responsiveNavBGColor;
+      margin: 0;
+
+      ul li{
+        display: inline;
+        width: 50%;
+        float: left;
+        padding: 0.7em 0 0.7em 0;
+        margin: 0 -2em 0 0;
+//        text-align: center;
+
+
+//        background-color:;
+      }
+    }
+  }
+
+  .mainwrap {
+    p{
+      padding: 0;
+    }
+
+    #contact{
+      a{
+        font-size: 1.8em;
+      }
+    }
+  }
+
+  footer{
+    height: 4em;
+    .social{
+      position: relative;
+      text-align: center;
+      width: 100%;
+      padding: 0.5em;
+    }
+  }
+}
+
+
+//.clearfix {
+//  display: inline-block;
+//}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  // Nivo Slider -------------------------------
+  .nivoSlider {
+    position: relative;
+    background:url(images/loading.gif) no-repeat 50% 50%;
+  }
+  .nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+  }
+  .nivoSlider a {
+    border:0;
+    display:block;
+  }
